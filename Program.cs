@@ -24,9 +24,12 @@ namespace _8967796_PrateekChadha_prog8051_Assignment1
                     case 1: Console.WriteLine("You have choosen Cat");
                         
                         break;
-                        case 2: Console.WriteLine("You have choosen Dog");
+                        
+                    case 2: Console.WriteLine("You have choosen Dog");
                         break;
-                        case 3: Console.WriteLine("")
+                        
+                    case 3: Console.WriteLine("You have choosen Rabbit");
+                        break;
                    }
                }
         }
