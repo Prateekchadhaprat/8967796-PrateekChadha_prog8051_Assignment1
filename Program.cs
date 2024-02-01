@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -13,16 +13,16 @@ namespace _8967796_PrateekChadha_prog8051_Assignment1
         {
             Console.WriteLine("Please choose a type of Pet");
             Console.WriteLine("1. Cat \n2. Dog \n3. Rabbit");
-            bool pet1 = int.TryParse(Console.ReadLine(), out int pet);
+            bool pettypecheck = int.TryParse(Console.ReadLine(), out int pettype); // using bool validation to ensure correct type of pet by user
 
 
-            if (pet1 == true)
+            if (pettypecheck == true)
 
             {
-                while (pet1)
+                while (true)// using while loop for infinite pet care actions.
                 {
 
-                    switch (pet)
+                    switch (pettype)
                     {
                         case 1:
                             Console.WriteLine("your choice is {0}", pet);
@@ -30,21 +30,38 @@ namespace _8967796_PrateekChadha_prog8051_Assignment1
                             String petname = Console.ReadLine();
 
                             Console.WriteLine("Welcome, {0} Let's take a good care of it", petname);
+                            //pet attribute 
+                            int hungercat = 50;
+                            int happinesscat = 50;
+                            int healthcat = 50;
+
 
                             Console.WriteLine("Main Menu:");
                             Console.WriteLine("1. Feed \n2. Play with \n3. Let rest \n4. Check status \n5. Exit ");
 
-                    
-                           /*  bool mm1 = int.TryParse(Console.ReadLine(), out int mm);
-                             if (mm1 == true)
-                             {
-                                 switch (mm)
-                                 {
-                                     case 1:
-                                         Console.WriteLine("You have choosen feeding{0}", mm);
 
-                             
-*/
+                            /*  bool mm1 = int.TryParse(Console.ReadLine(), out int mm);
+                              if (mm1 == true)
+                              {
+                                  switch (mm)
+                                  {
+                                      case 1:
+                                          Console.WriteLine("You have choosen feeding{0}", mm);
+                                          Console.WriteLine("You fed, pet His hunger is decreases, and health improves slightly");
+                                        break;
+                                     case 2: 
+                            Console.WriteLine("You have choosen Playing{0}, mm)";
+                            Console.WriteLine("You played pet, his happiness increases and hunger slightly increases");
+                            break;
+
+                            case 3:
+                            Console.WriteLine("You have choosen Resting {0}, mm)";
+                            Console.WriteLine("pet is resting, his health is improving and happniness is decreasing slightly");
+
+
+
+
+ */
                             break;
 
 
