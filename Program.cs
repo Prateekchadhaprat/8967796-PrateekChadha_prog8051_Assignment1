@@ -16,26 +16,28 @@ namespace _8967796_PrateekChadha_prog8051_Assignment1
             bool pettypecheck = int.TryParse(Console.ReadLine(), out int pettype); // using bool validation to ensure correct type of pet by user
 
 
-            if (pettypecheck == true)
+            if (pettypecheck)
 
             {
-                while (true)// using while loop for infinite pet care actions.
+
+                switch (pettype)
                 {
+                    case 1:
+                        Console.WriteLine("your choice is {0}", pettype);
+                        Console.WriteLine("You have choosen Cat,What would you like to name your pet?");
+                        String petname = Console.ReadLine();
 
-                    switch (pettype)
-                    {
-                        case 1:
-                            Console.WriteLine("your choice is {0}", pettype);
-                            Console.WriteLine("You have choosen Cat,What would you like to name your pet?");
-                            String petname = Console.ReadLine();
+                        Console.WriteLine("Welcome, {0} Let's take a good care of it", petname);
 
-                            Console.WriteLine("Welcome, {0} Let's take a good care of it", petname);
-                            
-                            int hungercat = 5; // these are pet attributes
-                            int happinesscat = 5;
-                            int healthcat = 5;
+                        int hungercat = 5; // these are pet attributes
+                        int happinesscat = 5;
+                        int healthcat = 5;
 
 
+
+                        int wannaContinue = 1;
+                        while (wannaContinue == 1)
+                        {
                             Console.WriteLine("Main Menu:"); // main menue for pet care actions
                             Console.WriteLine("1. Feed \n2. Play with \n3. Let rest \n4. Check status \n5. Exit ");
 
@@ -43,17 +45,18 @@ namespace _8967796_PrateekChadha_prog8051_Assignment1
 
                             if (actioncatcheck)
                             {
+
                                 switch (cataction)
                                 {
                                     case 1:
 
-                                        if (hungercat - 2 < 1)
+                                        if (hungercat - 1 < 1)
                                         {
                                             hungercat = 1;
                                         }
                                         else
                                         {
-                                            hungercat = hungercat - 2;
+                                            hungercat = hungercat - 1;
                                         }
                                         if (healthcat + 1 > 10) // using if to ensure health doesn't exceed to 10
                                         {
@@ -90,13 +93,13 @@ namespace _8967796_PrateekChadha_prog8051_Assignment1
                                         break;
 
                                     case 3:
-                                        if (healthcat + 2 > 10)// to ensure health doesn't exceed 10
+                                        if (healthcat + 1 > 10)// to ensure health doesn't exceed 10
                                         {
                                             healthcat = 10;
                                         }
                                         else
                                         {
-                                            healthcat = healthcat + 2;
+                                            healthcat = healthcat + 1;
                                         }
                                         if (happinesscat - 1 < 1)
                                         {
@@ -114,8 +117,8 @@ namespace _8967796_PrateekChadha_prog8051_Assignment1
                                         Console.WriteLine($"Happiness:- {happinesscat}/10");
                                         Console.WriteLine($"Health:-{healthcat}/10");
 
-                                        if (hungercat <= 2)
-                                            Console.WriteLine("Warning : Hunger status is critically low for your pet");
+                                        if (hungercat >= 8)
+                                            Console.WriteLine("Warning : Hunger status is critically high for your pet");
                                         if (happinesscat <= 2)
                                             Console.WriteLine("Warning: Happiness status is critically low for your pet");
                                         if (healthcat <= 2)
@@ -128,26 +131,34 @@ namespace _8967796_PrateekChadha_prog8051_Assignment1
                                     default:
                                         Console.WriteLine("Invalid choice, please choose option from 1 to 5 only");
                                         break;
+
                                 }
+
                             }
                             else
                             {
                                 Console.WriteLine("Invalid input, please choose 1-5");
-                            }                                   
-                         break;
-                    
-                        case 2:
-                            Console.WriteLine("your choice is {0}", pettype);
-                            Console.WriteLine("You have choosen Dog,What would you like to name your pet?");
-                            String petnamedog = Console.ReadLine();
+                            }
 
-                            Console.WriteLine("Welcome, {0} Let's take a good care of it", petnamedog);
+                            Console.WriteLine("You want to continue or not, 1 for yes and 0 for no");
+                            bool isContinue = int.TryParse(Console.ReadLine(), out wannaContinue);
+                        }
+                        break;
 
-                            int hungerdog = 5; // these are pet attributes
-                            int happinessdog = 5;
-                            int healthdog = 5;
+                    case 2:
+                        Console.WriteLine("your choice is {0}", pettype);
+                        Console.WriteLine("You have choosen Dog,What would you like to name your pet?");
+                        String petnamedog = Console.ReadLine();
 
+                        Console.WriteLine("Welcome, {0} Let's take a good care of it", petnamedog);
 
+                        int hungerdog = 5; // these are pet attributes
+                        int happinessdog = 5;
+                        int healthdog = 5;
+
+                        int wannaContinue2 = 1;
+                        while (wannaContinue2 == 1)
+                        {
                             Console.WriteLine("Main Menu:"); // main menue for pet care actions
                             Console.WriteLine("1. Feed \n2. Play with \n3. Let rest \n4. Check status \n5. Exit ");
 
@@ -189,14 +200,14 @@ namespace _8967796_PrateekChadha_prog8051_Assignment1
                                             happinessdog = happinessdog - 1;
 
                                         }
-                                        //  hungercat = hungercat + 1 > 100 ? 100 : hungercat + 1;
+
                                         if (hungerdog + 1 > 10) // to ensure hunger doesn't exceed 10
                                         {
                                             hungerdog = 10;
                                         }
                                         else
                                         {
-                                            hungercat = hungerdog + 1;
+                                            hungerdog = hungerdog + 1;
                                         }
                                         Console.WriteLine($"You played with{petnamedog} , his happiness increases and hunger slightly increases");
                                         break;
@@ -247,19 +258,26 @@ namespace _8967796_PrateekChadha_prog8051_Assignment1
                                 Console.WriteLine("Invalid input, please choose 1-5");
                             }
 
-                            break;
+                            Console.WriteLine("You want to continue or not, 1 for yes and 0 for no");
+                            bool isContinue = int.TryParse(Console.ReadLine(), out wannaContinue2);
+                        }
+                        break;
 
-                        case 3:
-                            Console.WriteLine("your choice is {0}", pettype);
-                            Console.WriteLine("You have choosen Rabbit,What would you like to name your pet?");
-                            String petnamerabbit = Console.ReadLine();
+                    case 3:
 
-                            Console.WriteLine("Welcome, {0} Let's take a good care of it", petnamerabbit);
+                        Console.WriteLine("your choice is {0}", pettype);
+                        Console.WriteLine("You have choosen Rabbit,What would you like to name your pet?");
+                        String petnamerabbit = Console.ReadLine();
 
-                            int hungerrabbit = 5; // these are pet attributes
-                            int happinessrabbit = 5;
-                            int healthrabbit = 5;
+                        Console.WriteLine("Welcome, {0} Let's take a good care of it", petnamerabbit);
 
+                        int hungerrabbit = 5; // these are pet attributes
+                        int happinessrabbit = 5;
+                        int healthrabbit = 5;
+
+                        int wannaContinue3 = 1;
+                        while (wannaContinue3 == 1)
+                        {
 
                             Console.WriteLine("Main Menu:"); // main menue for pet care actions
                             Console.WriteLine("1. Feed \n2. Play with \n3. Let rest \n4. Check status \n5. Exit ");
@@ -293,16 +311,16 @@ namespace _8967796_PrateekChadha_prog8051_Assignment1
 
                                     case 2:
 
-                                        if (happinessrabbit - 1 < 1) // to ensure health doesn't go below 1 
+                                        if (happinessrabbit + 1 < 1) // to ensure health doesn't go below 1 
                                         {
                                             happinessrabbit = 1;
                                         }
                                         else
                                         {
-                                            happinessrabbit = happinessrabbit - 1;
+                                            happinessrabbit = happinessrabbit + 1;
 
                                         }
-                                        //  hungercat = hungercat + 1 > 100 ? 100 : hungercat + 1;
+
                                         if (hungerrabbit + 1 > 10) // to ensure hunger doesn't exceed 10
                                         {
                                             hungerrabbit = 10;
@@ -332,7 +350,9 @@ namespace _8967796_PrateekChadha_prog8051_Assignment1
                                             happinessrabbit = happinessrabbit - 1;
                                         }
                                         Console.WriteLine($"Your {petnamerabbit} is resting. his health is improving and happniness is decreasing slightly\".");
-                                        break;
+                                       
+                                       break;
+
                                     case 4:
                                         Console.WriteLine($"\n{petnamerabbit}status");
                                         Console.WriteLine($"Hunger:- {hungerrabbit}/10");
@@ -359,25 +379,24 @@ namespace _8967796_PrateekChadha_prog8051_Assignment1
                             {
                                 Console.WriteLine("Invalid input, please choose 1-5");
                             }
-
-                            break;
-                        default:
-                            Console.WriteLine("You have to choose from only these three");
-                            break;
-                    }
-
-
+                            Console.WriteLine("You want to continue or not, 1 for yes and 0 for no");
+                            bool isContinue = int.TryParse(Console.ReadLine(), out wannaContinue3);
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("You have to choose from only these three");
+                        break;
                 }
             }
-
+            
             else
             {
                 Console.WriteLine("Invalid input. Please choose a number from 1 to 3.");
             }
-        
+
         }
 
-    }
+    } 
 }
     
 
