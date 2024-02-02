@@ -25,36 +25,89 @@ namespace _8967796_PrateekChadha_prog8051_Assignment1
                     switch (pettype)
                     {
                         case 1:
-                            Console.WriteLine("your choice is {0}", pet);
+                            Console.WriteLine("your choice is {0}", pettype);
                             Console.WriteLine("You have choosen Cat,What would you like to name your pet?");
                             String petname = Console.ReadLine();
 
                             Console.WriteLine("Welcome, {0} Let's take a good care of it", petname);
-                            //pet attribute 
-                            int hungercat = 50;
+                            
+                            int hungercat = 50; // these are pet attributes
                             int happinesscat = 50;
                             int healthcat = 50;
 
 
-                            Console.WriteLine("Main Menu:");
+                            Console.WriteLine("Main Menu:"); // main menue for pet care actions
                             Console.WriteLine("1. Feed \n2. Play with \n3. Let rest \n4. Check status \n5. Exit ");
 
-
-                            /*  bool mm1 = int.TryParse(Console.ReadLine(), out int mm);
-                              if (mm1 == true)
+                            bool actioncatcheck = int.TryParse(Console.ReadLine(), out int cataction); //user input for action selections
+                  
+                           if (actioncatcheck)
                               {
-                                  switch (mm)
+                                  switch (cataction)
                                   {
                                       case 1:
-                                          Console.WriteLine("You have choosen feeding{0}", mm);
-                                          Console.WriteLine("You fed, pet His hunger is decreases, and health improves slightly");
-                                        break;
+
+                                    if(hungercat - 2 < 1)
+                                        {
+                                            hungercat = 1;
+                                        }
+                                        else
+                                        {
+                                            hungercat= hungercat - 2;
+                                        }
+                                    if(healthcat + 1 > 10) // using if to ensure health doesn't exceed to 10
+                                        {
+                                            healthcat= 10;
+                                        }
+                                        else
+                                        {
+                                            healthcat = healthcat + 1;
+                                        }
+                                        Console.WriteLine($"You fed {petname} His hunger is decreased, and health improves slightly ");                              
+                                       break;
+
                                      case 2: 
-                            Console.WriteLine("You have choosen Playing{0}, mm)";
-                            Console.WriteLine("You played pet, his happiness increases and hunger slightly increases");
-                            break;
+
+                                        if(happinesscat - 1< 1) // to ensure health doesn't go below 1 
+                                        {
+                                            happinesscat = 1;
+                                        }    
+                                        else
+                                        {
+                                            happinesscat= happinesscat - 1; 
+
+                                        }
+                                      //  hungercat = hungercat + 1 > 100 ? 100 : hungercat + 1;
+                                        if (hungercat +1> 10) // to ensure hunger doesn't exceed 10
+                                        {
+                                            hungercat = 10;
+                                        }
+                                        else
+                                        {
+                                            hungercat = hungercat + 1;
+                                        }                                      
+                                    Console.WriteLine($"You played with{petname} , his happiness increases and hunger slightly increases");
+                                      break;
 
                             case 3:
+                                     if (healthcat + 2 > 10)// to ensure health doesn't exceed 10
+                                        {
+                                            healthcat = 10;
+                                        }
+                                        else
+                                        {
+                                            healthcat = healthcat + 2;
+                                        }
+                                     if (happinesscat -1 <1)
+                                        {
+                                            happinesscat = 1;
+                                        }
+                                     else
+                                        {
+                                            happinesscat = happinesscat - 1;
+                                        }
+
+
                             Console.WriteLine("You have choosen Resting {0}, mm)";
                             Console.WriteLine("pet is resting, his health is improving and happniness is decreasing slightly");
 
