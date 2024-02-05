@@ -37,13 +37,16 @@ namespace _8967796_PrateekChadha_prog8051_Assignment1
                     Console.WriteLine("You have choosen Rabbit,What would you like to name your pet?");
                     petName = Console.ReadLine();
                     break;
+                default:
+                    Console.WriteLine("Please enter the valid option");
+                    break;
             }
 
             Console.WriteLine("Welcome, {0} Let's take a good care of it", petName);
 
             while (true) // Implemented main loop for pet care actions.
             {
-                Console.WriteLine("Main Menu:"); // main menu for pet care actions
+                Console.WriteLine("\nMain Menu:"); // main menu for pet care actions
                 Console.WriteLine("1. Feed \n2. Play with \n3. Let rest \n4. Check status \n5. Exit ");
 
                 bool actioncheck = int.TryParse(Console.ReadLine(), out int action); //user input for action selections
@@ -122,10 +125,10 @@ namespace _8967796_PrateekChadha_prog8051_Assignment1
 
                         case 4: // Checking and displaying pet status
 
-                            Console.WriteLine($"\n{petName}status");
-                            Console.WriteLine($"Hunger:- {hunger}/10");
-                            Console.WriteLine($"Happiness:- {happiness}/10");
-                            Console.WriteLine($"Health:-{health}/10");
+                            Console.WriteLine($"\n{petName } status");
+                            Console.WriteLine($"Hunger: {hunger}/10");
+                            Console.WriteLine($"Happiness: {happiness}/10");
+                            Console.WriteLine($"Health: {health}/10");
 
                             // Displaying warnings for critical statuses
 
